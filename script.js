@@ -1,26 +1,40 @@
-const inputTexto = document.querySelector("[input-texto]")
-const btnContar = document.querySelector("[btn-contar]")
-const divContador = document.querySelector("[txt-contador]")
+const inputTexto = document.querySelector("#input");
+const btnContar = document.querySelector("#btn-contar");
+const divContador = document.querySelector("[txt-contador]");
 
-let contagemCaracteres = true
+let contagemCaracteres = true;
 
-const saudacao = (evento) => {
+const contarCaracteres = (texto) => {
+    return texto.length;
+};
 
-    console.log(evento.target.value)
+const contarPalavras = (texto) => {
+    const palavras = texto.trim().split(" ");
+    return palavras.length;
+};
 
-
-}
-
-function handleBtnContar(evento) {
-    if (contagemCaracteres){
-        evento.target.innerText = "Contar Palavras"     
-        contagemCaracteres = false;
+const atualizarContador = () => {
+    if (contagemCaracteres) {
+        const caracteres = contarCaracteres(inputTexto.value);
+        divContador.textContent = `${caracteres} caracteres`;
     } else {
-        evento.target.innerText = "Contar Caracteres"
-        contagemCaracteres = true ;
+        const palavras = contarPalavras(inputTexto.value);
+        divContador.textContent = `${palavras} palavras`;
     }
-}
-// variavel q recebeu função não declarativa
+};
+
+const handleBtnContar = () => {
+    contagemCaracteres = !contagemCaracteres;
+    if (contagemCaracteres) {
+        btnContar.innerText = "Contar Palavras";
+    } else {
+        btnContar.innerText = "Contar Caracteres";
+    }
+    atualizarContador();
+};
+
+btnContar.addEventListener("click", handleBtnContar);
+inputTexto.addEventListener("input", atualizarContador);
 
 
 // function saudacao(evento) {
@@ -28,9 +42,4 @@ function handleBtnContar(evento) {
     //     console.log(evento.target)
     // } funcao declarativa
 
-
-btnContar.addEventListener("click", handleBtnContar)
 // btnContar.onclick = handleBtnContar   -> outra forma
-
-
-inputTexto.addEventListener("input", saudacao)

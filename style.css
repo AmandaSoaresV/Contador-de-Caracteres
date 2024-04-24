@@ -5,8 +5,11 @@ body {
 
 }
 :root {
-    --cor: rgb(52, 16, 85);
+    --cor: rgb(84, 98, 158);
     --cor2: aliceblue ;
+    --cor3: rgb(109, 107, 199);
+    --cor4: rgb(9, 7, 97);
+    --cor5: rgb(252, 228, 19);
 }
 
 .container {
@@ -21,8 +24,8 @@ body {
     justify-content: center;
     margin: auto;
     gap: 1rem;
+    color: var(--cor5);
 }
-
 
 h1 {
     color: var(--cor);
@@ -34,20 +37,22 @@ button {
     height: 60vh;
     border-radius: 8px;
     color: var(--contColor);
-    background-color: var(--cor);
+    background-color: var(--cor4);
     width: 17vw;
     height: 3vw;
     cursor: pointer;
     
 }
 button:hover{
-    background-color: rgb(169, 90, 226);
+    background-color: var(--cor3);
 }
 textarea {
     width: 100%;
     height: 110px; 
     border-radius: 5px;
     font-size: 1rem;
-        
+    border-radius: 8px;
+    margin: 10px;
+    
   }
   
